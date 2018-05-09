@@ -1,0 +1,61 @@
+---
+centos7-devel:
+  primary: true
+  box: centos7
+  ansible:
+    playbook: 'playbooks/devel.yml'
+    group: 'devel'
+    variables:
+      ssh_forward_agent: true
+      foreman_devel_github_push_ssh: True
+      katello_devel_github_username: <REPLACE ME>
+
+centos7-hammer-devel:
+  box: centos7
+  memory: 512
+  ansible:
+    playbook: 'playbooks/hammer_devel.yml'
+    group: 'hammer-devel'
+    variables:
+      hammer_devel_github_username: '<REPLACE ME>'
+      hammer_devel_github_fork_remote_name: 'origin'
+
+katello-remote-execution:
+  box: centos7-katello-nightly
+  installer: --enable-foreman-remote-execution
+
+centos7-proxy-devel:
+    box: centos7
+    ansible:
+      playbook: 'playbooks/foreman_proxy_content_dev.yml'
+      group: 'foreman-proxy-content'
+      server: 'centos7-devel'
+
+katello-client:
+  box: centos7
+  ansible:
+    playbook: 'playbooks/katello_client.yml'
+    group: 'client'
+    server: 'centos7-devel'
+
+centos7-katello-bats-ci:
+  box: centos7
+  ansible:
+    playbook: 'playbooks/bats_pipeline_katello_nightly.yml'
+    group: 'bats'
+
+centos7-foreman-bats-ci:
+  box: centos7
+  ansible:
+    playbook: 'playbooks/bats_pipeline_foreman_nightly.yml'
+    group: 'bats'
+
+centos7-dynflow-devel:
+  box: centos7
+  memory: 512
+  ansible:
+    group: 'dynflow_devel'
+    playbook: 'playbooks/dynflow_devel.yml'
+    variables:
+      dynflow_devel_github_username: '<REPLACE ME>'
+      dynflow_devel_github_fork_remote_name: 'origin'

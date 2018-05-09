@@ -1,0 +1,8 @@
+boxes:
+  ubuntu1604:
+    box_name: 'generic/ubuntu1604'
+    image_name: !ruby/regexp '/Ubuntu.*16\.04.*PVHVM/'
+    pty: true
+    ansible:
+      variables:
+        ansible_python_interpreter: /usr/bin/python3

@@ -1,0 +1,10 @@
+boxes:
+  debian8:
+    box_name:   'debian/jessie64'
+    image_name: !ruby/regexp '/Debian.*Jessie/'
+    pty:        true
+
+  debian9:
+    box_name:   'debian/stretch64'
+    image_name: !ruby/regexp '/Debian.*Stretch.*PVHVM/'
+    pty:        true

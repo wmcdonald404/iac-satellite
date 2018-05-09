@@ -1,0 +1,5 @@
+boxes:
+  rhel7:
+    box_name: 'rhel7_5'
+    image_name: !ruby/regexp '/Red Hat 7.*PV/'
+    pty:        true

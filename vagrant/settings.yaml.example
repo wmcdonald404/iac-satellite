@@ -1,0 +1,13 @@
+---
+memory: 4608
+cpus: 2
+scale_memory: 1
+scale_cpus: 1
+sync_type: 'rsync'
+
+cachier:
+  mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+
+ssh_forward_agent: True
+
+domain: 'example.com'

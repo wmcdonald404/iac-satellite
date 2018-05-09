@@ -1,0 +1,34 @@
+installers:
+  - foreman: '1.15'
+    katello: '3.4'
+    puppet: 4
+    boxes:
+      - 'centos7'
+      - 'debian8'
+      - 'ubuntu1604'
+
+  - foreman: '1.16'
+    katello: '3.5'
+    puppet: 5
+    boxes:
+      - 'centos7'
+      - 'debian8'
+      - 'debian9'
+      - 'ubuntu1604'
+
+  - foreman: '1.17'
+    katello: '3.6'
+    puppet: 5
+    boxes:
+      - 'centos7'
+      - 'debian9'
+      - 'ubuntu1604'
+
+  - foreman: 'nightly'
+    katello: 'nightly'
+    puppet: 5
+    boxes:
+      - 'centos7'
+      - 'debian8'
+      - 'debian9'
+      - 'ubuntu1604'
