@@ -1,0 +1,24 @@
+---
+#- name: Build Satellites
+#  hosts: satellite
+#  become: True
+#  roles:
+#    - sean797.subscription_manager
+#    - sean797.foreman_installer
+
+- name: Make sat-master trust sat-eng Certificate
+  hosts: satellite
+  become: True
+  roles:
+    - bdellegrazie.ca-certificates
+  tasks:
+    - name: Create symlink for direct sync
+      file:
+        state: link
+        path: /var/www/html/pub/content/
+        src: "/var/lib/pulp/published/yum/https/repos/{{ configure_katello_organizations[0]['name'] }}/Library"
+
+- name: Configure Satellites
+  hosts: satellite
+  roles:
+    - sean797.configure-katello

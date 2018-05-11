@@ -1,1 +1,3 @@
+- src: sean797.subscription_manager
 - src: sean797.foreman_installer
+- src: sean797.configure-katello

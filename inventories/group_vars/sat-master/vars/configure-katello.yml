@@ -1,0 +1,17 @@
+---
+configure_katello_organizations:
+  - { name: Default Organization, state: present, manifest: sokeeffe-AWS, redhat_repository_url: "https://{{ hostvars[groups['sat-eng'][0]]['ansible_fqdn'] }}/pub/content" }
+
+configure_katello_lifecycle_environment:
+  - name: Engineering
+    organization: Default Organization
+    prior: Library
+    state: present
+  - name: RC
+    organization: Default Organization
+    prior: Engineering
+    state: present
+  - name: Production
+    organization: Default Organization
+    prior: RC
+    state: present

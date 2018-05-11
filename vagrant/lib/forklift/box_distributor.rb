@@ -158,6 +158,7 @@ module Forklift
         machine.vm.provision(*args) do |ansible_provisioner|
           ansible_provisioner.playbook = playbook
           ansible_provisioner.extra_vars = ansible['variables']
+          puts @ansible_groups
           ansible_provisioner.groups = @ansible_groups
           ansible_provisioner.verbose = ansible['verbose'] ? ansible['verbose'] : false
         end

@@ -1,0 +1,10 @@
+---
+subscription_manager:
+  user: rhn-gps-sokeeffe
+  password: "{{ vault_rhsm_password | default('changeme') }}"
+
+subscription_manager_pool_id:
+#  - 8a85f98b6200c40c016201b2fa1d52fa
+  - 8a85f9873f77744e013f8944aab067cf
+
+subscription_manager_enabled_repos: rhel-7-server-rpms,rhel-server-rhscl-7-rpms,rhel-7-server-satellite-6.3-rpms,rhel-7-server-satellite-6.3-puppet4-rpms

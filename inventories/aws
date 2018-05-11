@@ -1,0 +1,9 @@
+[satellite]
+ec2-54-154-176-33.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+ec2-34-244-116-185.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+
+[sat-eng]
+ec2-34-244-116-185.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+
+[sat-master]
+ec2-54-154-176-33.eu-west-1.compute.amazonaws.com ansible_user=ec2-user

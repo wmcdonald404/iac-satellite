@@ -1,0 +1,6 @@
+---
+sat-eng:
+  box: rhel7
+  ansible:
+    playbook: 'playbooks/satellite-eng.yml'
+    group: 'satellite'

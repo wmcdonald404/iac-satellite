@@ -1,0 +1,6 @@
+---
+foreman_installer_pkg: satellite
+foreman_installer_scenario: satellite
+foreman_installer_scenarios_answers:
+  foreman:
+    admin_password: "{{ vault_satellite_admin_password | default('changeme') }}"

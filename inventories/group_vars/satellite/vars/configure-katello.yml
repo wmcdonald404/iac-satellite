@@ -1,0 +1,36 @@
+---
+
+configure_katello_username: admin
+configure_katello_password: "{{ vault_satellite_admin_password | default('changeme') }}"
+configure_katello_server_url: "https://{{ ansible_fqdn }}"
+configure_katello_host: "{{ ansible_fqdn }}"
+configure_katello_port: 443
+configure_katello_verify_ssl: false
+
+configure_katello_manifest_name: sokeeffe-AWS
+configure_katello_subscriptions:
+ - { pool_id: 8a85f98c60c2c2b40160c324e5d21d70, state: present, quantity: 9 }
+
+configure_rhsm_username: rhn-gps-sokeeffe
+configure_rhsm_password: "{{ vault_rhsm_password | default('changeme') }}" 
+configure_rhsm_verify_ssl: false
+
+configure_katello_settings:
+  - { name: default_download_policy, value: immediate }
+
+configure_katello_repository_sets:
+  - name: Red Hat Enterprise Linux 7 Server (RPMs)
+    repo_name: Red Hat Enterprise Linux 7 Server RPMs x86_64 7Server
+    organization: Default Organization
+    product: Red Hat Enterprise Linux Server
+    state: enabled
+    repositories:
+      - releasever: 7Server
+        basearch: x86_64
+  - name: Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)
+    repo_name: Red Hat Satellite Tools 6.2 for RHEL 7 Server RPMs x86_64
+    organization: Default Organization
+    product: Red Hat Enterprise Linux Server
+    state: enabled
+    repositories:
+      - basearch: x86_64
