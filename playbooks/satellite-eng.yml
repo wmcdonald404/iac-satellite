@@ -1,10 +1,10 @@
 ---
-#- name: Build Satellites
-#  hosts: satellite
-#  become: True
-#  roles:
-#    - sean797.subscription_manager
-#    - sean797.foreman_installer
+- name: Build Engineering Satellite
+  hosts: satellite
+  become: True
+  roles:
+    - sean797.subscription_manager
+    - sean797.foreman_installer
 
 - name: Make sat-master trust sat-eng Certificate
   hosts: satellite
